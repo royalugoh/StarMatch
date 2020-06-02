@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Game.css';
+import StarsDisplay from './StarsDisplay'
+import PlayNumber from './PlayNumber';
 // STAR MATCH - Starting Template
 
 const Game = () => {
@@ -12,16 +14,12 @@ const Game = () => {
       </div>
       <div className="body">
         <div className="left">
-          {
-			  utils.range(1, stars).map(starId => {
-				return <div key={starId} className="star"></div>
-			  })
-		  }
+            <StarsDisplay count={stars} />
         </div>
         <div className="right">
           {
 			utils.range(1, 9).map(number => {
-				return <button key={number} className="number">{number}</button>
+				return <PlayNumber key={number} number={number}/>
 			})
 		  }
         </div>
@@ -69,4 +67,8 @@ const utils = {
   },
 };
 
-export default Game;
+export {
+	Game,
+	utils,
+	colors
+} 
